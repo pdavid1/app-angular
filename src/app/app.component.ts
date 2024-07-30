@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 import { PadreComponent } from './comunicacion/padre/padre.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PadreComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, PadreComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
