@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-segundo',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './segundo.component.scss'
 })
 export class SegundoComponent {
-
+  router:ActivatedRoute = inject(ActivatedRoute);
+  id=0;
+  cod=0;
+  constructor(){
+    this.id = this.router.snapshot.params['id'];
+    this.cod = this.router.snapshot.params['cod'];
+  }
 }

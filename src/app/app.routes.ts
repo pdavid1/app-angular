@@ -3,6 +3,10 @@ import { InicioComponent } from './enrutamiento/inicio/inicio.component';
 import { PrimeroComponent } from './enrutamiento/primero/primero.component';
 import { SegundoComponent } from './enrutamiento/segundo/segundo.component';
 import { PaginanoencontradaComponent } from './enrutamiento/paginanoencontrada/paginanoencontrada.component';
+import { HijoAComponent } from './enrutamiento/hijo-a/hijo-a.component';
+import { HijoBComponent } from './enrutamiento/hijo-b/hijo-b.component';
+import { verificarGuard } from './guard/verificar.guard';
+import { NoAuthComponent } from './guard/no-auth/no-auth.component';
 
 export const routes: Routes = [
   {
@@ -12,13 +16,29 @@ export const routes: Routes = [
   ,
   {
     path:'primero',
-    component:PrimeroComponent
+    canActivate:[verificarGuard],
+    component:PrimeroComponent,
+    children:[
+      {
+        path:'hijo-a',
+        component:HijoAComponent
+      },
+      {
+        path:'hijo-b',
+        component:HijoBComponent
+      }
+    ]
   }
   ,
   {
-    path:'segundo',
+    path:'segundo/:id/:cod',
     component:SegundoComponent
   },
+  {
+    path:'no-auth',
+    component:NoAuthComponent
+  }
+  ,
   {
     path:'',
     redirectTo:'inicio',
