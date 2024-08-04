@@ -7,6 +7,7 @@ import { HijoAComponent } from './enrutamiento/hijo-a/hijo-a.component';
 import { HijoBComponent } from './enrutamiento/hijo-b/hijo-b.component';
 import { verificarGuard } from './guard/verificar.guard';
 import { NoAuthComponent } from './guard/no-auth/no-auth.component';
+import { PlantillaComponent } from './formularios/plantilla/plantilla.component';
 
 export const routes: Routes = [
   {
@@ -16,7 +17,7 @@ export const routes: Routes = [
   ,
   {
     path:'primero',
-    canActivate:[verificarGuard],
+    //canActivate:[verificarGuard],
     component:PrimeroComponent,
     children:[
       {
@@ -33,6 +34,10 @@ export const routes: Routes = [
   {
     path:'segundo/:id/:cod',
     component:SegundoComponent
+  },
+  {
+    path:'form-plantilla',
+    component:PlantillaComponent
   },
   {
     path:'no-auth',
