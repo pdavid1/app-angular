@@ -9,6 +9,7 @@ import { verificarGuard } from './guard/verificar.guard';
 import { NoAuthComponent } from './guard/no-auth/no-auth.component';
 import { PlantillaComponent } from './formularios/plantilla/plantilla.component';
 import { ReactivoComponent } from './formularios/reactivo/reactivo.component';
+import { PipeComponent } from './pipes/pipe/pipe.component';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,10 @@ export const routes: Routes = [
   {
     path:'segundo/:id/:cod',
     component:SegundoComponent
+  },
+  {
+    path:'pipe',
+    component:PipeComponent
   },
   {
     path:'form-plantilla',

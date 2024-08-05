@@ -1,0 +1,13 @@
+<p>pipe works!</p>
+
+{{ mensaje | uppercase }}
+<br>
+{{ fecha | date: 'short' }}
+<br>
+{{ fecha | date: 'dd/MM/YYYY' }}
+<br>
+{{ decimal | currency }}
+
+<div *ngFor="let l of lista">
+  {{ l.nombre }} | {{ l.idProfesion | profesion:profesiones }}
+</div>

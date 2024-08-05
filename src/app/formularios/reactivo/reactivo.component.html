@@ -3,9 +3,9 @@
 <form [formGroup]="usuarioForm" (ngSubmit)="guardar()">
   <label>Nombre</label>
   <input type="text" formControlName="nombre" >
-  <div class="alert" [hidden]="usuarioForm.controls.nombre.valid">
+  <!-- <div class="alert" [hidden]="usuarioForm.controls.nombre.valid">
     Dato Requerido
-  </div>
+  </div> -->
   <br>
   <label>Apellido</label>
   <input type="text" formControlName="apellido" >

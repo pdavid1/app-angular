@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuarioService } from '../../servicios/usuario.service';
 
 @Component({
   selector: 'app-inicio',
@@ -10,9 +11,19 @@ import { Router } from '@angular/router';
 })
 export class InicioComponent {
 
-  constructor(private router:Router){
+  listar = "";
+  constructor(private router:Router, private usuarioService: UsuarioService){
+    this.listar = this.usuarioService.obtenerUsuarios().join(',');
+
+    // let data = this.usuarioService.obtenerUsuarioUrl();
+    // console.log('.....', data)
+    this.usuarioService.obtenerUsuarioUrl().subscribe(data=>{
+      console.log('.....', data)
+    })
 
   }
+
+  //usuarioService = inject(UsuarioService);
 
   iraPrimero(){
     this.router.navigate(['primero']);
