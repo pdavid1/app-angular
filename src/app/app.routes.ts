@@ -1,3 +1,41 @@
 import { Routes } from '@angular/router';
+import { InicioComponent } from './enrutamiento/inicio/inicio.component';
+import { PrimeroComponent } from './enrutamiento/primero/primero.component';
+import { SegundoComponent } from './enrutamiento/segundo/segundo.component';
+import { PaginanoencontradaComponent } from './enrutamiento/paginanoencontrada/paginanoencontrada.component';
+import { HijoAComponent } from './enrutamiento/hijo-a/hijo-a.component';
+import { HijoBComponent } from './enrutamiento/hijo-b/hijo-b.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path:'inicio',
+    component:InicioComponent
+  },
+  {
+    path:'primero',
+    component:PrimeroComponent,
+    children: [
+      {
+        path:'hijo-a',
+        component:HijoAComponent
+      },
+      {
+        path:'hijo-b',
+        component:HijoBComponent
+      }
+    ]
+  },
+  {
+    path:'segundo/:id/:cod',
+    component:SegundoComponent
+  },
+  {
+    path:'',
+    redirectTo:'inicio',
+    pathMatch:'full'
+  },
+  {
+    path:'**',
+    component:PaginanoencontradaComponent
+  }
+];
