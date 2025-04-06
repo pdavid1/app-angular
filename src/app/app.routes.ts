@@ -5,6 +5,8 @@ import { SegundoComponent } from './enrutamiento/segundo/segundo.component';
 import { PaginanoencontradaComponent } from './enrutamiento/paginanoencontrada/paginanoencontrada.component';
 import { HijoAComponent } from './enrutamiento/hijo-a/hijo-a.component';
 import { HijoBComponent } from './enrutamiento/hijo-b/hijo-b.component';
+import { verificarGuard } from './guard/verificar.guard';
+import { NoAuthComponent } from './guard/no-auth/no-auth.component';
 
 export const routes: Routes = [
   {
@@ -13,6 +15,7 @@ export const routes: Routes = [
   },
   {
     path:'primero',
+    canActivate: [verificarGuard],
     component:PrimeroComponent,
     children: [
       {
@@ -28,6 +31,10 @@ export const routes: Routes = [
   {
     path:'segundo/:id/:cod',
     component:SegundoComponent
+  },
+  {
+    path:'no-auth',
+    component:NoAuthComponent
   },
   {
     path:'',
