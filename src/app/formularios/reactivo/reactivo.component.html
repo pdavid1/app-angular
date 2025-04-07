@@ -1,0 +1,48 @@
+<h2>Datos del Usuario</h2>
+
+<form [formGroup]="usuarioForm" (ngSubmit)="guardar()">
+  <label>Nombre</label>
+  <input type="text" formControlName="nombre">
+  <div class="alert" [hidden]="usuarioForm.controls['nombre'].valid">
+    Dato requerido
+  </div>
+  <br>
+  <label>Apellido</label>
+  <input type="text" formControlName="apellido">
+
+  <div formGroupName="direccion">
+    <label>Ciudad</label>
+    <input type="text" formControlName="ciudad" />
+    <br />
+    <label>Departamento</label>
+    <input type="text" formControlName="departamento" />
+  </div>
+
+  <button type="submit" (click)="actualizar()">Actualizar</button>
+  <button type="submit" [disabled]="!usuarioForm.valid">Guardar</button>
+</form>
+
+
+
+
+
+<!-- <form [formGroup]="usuarioForm" (ngSubmit)="guardar()">
+  <label>Nombre</label>
+  <input type="text" formControlName="nombre" required/>
+  <div class="alert" [hidden]="usuarioForm.controls.nombre.valid">
+    Dato requerido
+  </div>
+  <br />
+  <label>Apellido</label>
+  <input type="text" formControlName="apellido" required/>
+  <br />
+  <div formGroupName="direccion">
+    <label>Ciudad</label>
+    <input type="text" formControlName="ciudad" />
+    <br />
+    <label>Departamento</label>
+    <input type="text" formControlName="departamento" />
+  </div>
+  <button type="submit" (click)="actualizar()">Actualizar</button>
+  <button type="submit" [disabled]="!usuarioForm.valid">Guardar</button>
+</form> -->
