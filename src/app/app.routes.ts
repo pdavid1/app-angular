@@ -1,3 +1,4 @@
+import { PlantillaComponent } from './formularios/plantilla/plantilla.component';
 import { Routes } from '@angular/router';
 import { InicioComponent } from './enrutamiento/inicio/inicio.component';
 import { PrimeroComponent } from './enrutamiento/primero/primero.component';
@@ -15,7 +16,7 @@ export const routes: Routes = [
   },
   {
     path:'primero',
-    canActivate: [verificarGuard],
+    // canActivate: [verificarGuard],
     component:PrimeroComponent,
     children: [
       {
@@ -31,6 +32,10 @@ export const routes: Routes = [
   {
     path:'segundo/:id/:cod',
     component:SegundoComponent
+  },
+  {
+    path:'form-plantilla',
+    component:PlantillaComponent
   },
   {
     path:'no-auth',

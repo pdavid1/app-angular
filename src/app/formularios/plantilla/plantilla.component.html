@@ -1,0 +1,65 @@
+<h2>Datos del Programador</h2>
+<div [hidden]="enviado">
+  <form (ngSubmit)="enviar()" #programadoForm="ngForm">
+    <div>
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        [(ngModel)]="programador.nombre"
+        name="nombre"
+        id="nombre"
+        required
+        #nombre="ngModel"
+      />
+      <div [hidden]="nombre.valid" class="alert">El nombre es requerido</div>
+    </div>
+    <br />
+    <div>
+      <label for="especialidad">Especialidad con ngFor</label>
+      <select
+        [(ngModel)]="programador.especialidad"
+        name="especialidad"
+        id="especialidad"
+        required
+        #especialidad="ngModel"
+      >
+        <option
+          *ngFor="let especialidad of especialidades"
+          [value]="especialidad"
+        >
+          {{ especialidad }}
+        </option>
+      </select>
+      <div [hidden]="especialidad.valid" class="alert">
+        El nombre es requerido
+      </div>
+    </div>
+
+    <div>
+      <label for="especialidad">Especialidad con arroba for</label>
+      <select
+        [(ngModel)]="programador.especialidad"
+        name="especialidad"
+        id="especialidad"
+        required
+        #especialidad="ngModel"
+      >
+        @for (especialidad of especialidades; track $index) {
+        <option [value]="especialidad">{{ especialidad }}</option>
+        }
+      </select>
+      <div [hidden]="especialidad.valid" class="alert">
+        La especialidad es requerida
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="programadoForm.form.invalid">
+      Enviar
+    </button>
+  </form>
+</div>
+<div [hidden]="enviado==false">
+  Los datos se enviaron.
+</div>
+
+{{ programador.nombre }} - {{ programador.especialidad }}
