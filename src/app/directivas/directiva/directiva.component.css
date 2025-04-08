@@ -1,0 +1,11 @@
+.pendiente{
+  background-color: yellow;
+}
+
+.activo{
+  background-color: green;
+}
+
+.inactivo{
+  background-color: gray;
+}
