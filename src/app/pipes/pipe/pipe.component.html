@@ -1,0 +1,19 @@
+<p>pipe works!</p>
+
+{{ mensaje | demo | uppercase }}
+<br>
+{{ fecha | date:'dd/MM/yyyy'  }}
+<br>
+{{ decimal | currency }}
+
+<div *ngFor="let l of lista">
+  {{ l.nombre }} | {{ l.idProfesion }}
+</div>
+<br>
+<label> con arroba for</label>
+<div>
+  @for (l of lista; track $index) {
+    {{ l.nombre }} | {{ l.idProfesion | profesion:profesiones }}
+    <br>
+  }
+</div>
